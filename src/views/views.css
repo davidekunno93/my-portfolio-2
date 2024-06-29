@@ -1,0 +1,736 @@
+.hero-section {
+    width: 100%;
+    height: calc(100vh - 48px);
+    height: 100vh;
+    background-color: #202024;
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+}
+
+.hero-section>.intro-area {
+    flex: 3;
+    /* background-color: blue; */
+    padding: 72px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero-section>.intro-area,
+.hero-section>.links-area {
+    color: white;
+}
+
+.hero-section>.intro-area .intro-name p {
+    color: white;
+    font-size: 84px;
+    font-weight: 500;
+    font-family: 'Share Tech';
+    line-height: 1.2;
+}
+
+.hero-section>.intro-area .intro-summary {
+    color: white;
+    font-size: 16px;
+}
+
+.big-action-btn {
+    width: 96px;
+    height: 96px;
+    background-color: blue;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.big-action-btn span {
+    font-size: 56px;
+}
+.big-action-btn:hover {
+    box-shadow: 0 0 12px blue;
+    transition: 0.5s;
+}
+
+.hero-section>.links-area {
+    flex: 2;
+    padding: 108px 72px 72px 144px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* gap: 32px; */
+    justify-content: space-between;
+}
+
+.links-area .title {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.links-area .body-text {
+    font-size: 12px;
+    color: gray;
+    margin-top: 8px;
+    margin-bottom: 16px;
+}
+
+.links-area .text-link {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+    cursor: pointer;
+}
+.links-area .text-link:hover p {
+    color: rgb(87, 255, 205);
+    border-bottom: 1px solid rgb(87, 255, 205);
+    transition: 0.2s;
+}
+.links-area .text-link:hover span{
+    color: rgb(87, 255, 205);
+    transform: translateX(4px);
+    transition: 0.2s;
+}
+
+.links-area .text-link>p {
+    border-bottom: 1px solid white;
+    color: white;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.links-area .text-link>span {
+    color: white;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+.my-work-link .project-boxes {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+
+}
+
+.project-boxes .project-box {
+    width: 92px;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.project-box .project-title {
+    /* text-transform: uppercase; */
+    font-weight: 400;
+    transition: 0.2s;
+}
+.project-boxes .project-box:hover .project-title {
+    color: rgb(87, 255, 205);
+    transition: 0.2s;
+}
+.project-boxes .project-box:hover .project-img {
+    padding: 10px;
+}
+
+.project-boxes .project-box .project-img {
+    width: 64px;
+    height: 64px;
+    object-position: center;
+    object-fit: contain;
+    /* border: 1px solid gray; */
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 4px;
+    padding: 12px;
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+.follow-me-link .icon-links {
+    margin-top: 8px;
+    /* margin-bottom: 16px; */
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.icon-links .icon-link {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.faded-line {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    width: 100%;
+}
+
+
+/* --------------------------END OF HERO SECTION----------------------------------- */
+
+.tech-about-me-section {
+    background-color: #282832;
+    color: white;
+    height: 100vh;
+    width: 100%;
+    padding: 56px 72px;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* .tech-area {
+    
+} */
+.skills-list {
+    display: flex;
+    flex-direction: row;
+    gap: 24px 48px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: 200px;
+    height: 100px;
+    /* background-color: red; */
+    text-align: left;
+    font-family: 'Share Tech';
+}
+
+.skill .name {
+    font-size: 48px;
+    font-weight: 500;
+    font-family: 'Share Tech';
+}
+
+.skill .description {
+    font-size: 14px;
+    color: gray;
+    font-weight: 500;
+    font-family: 'Share Tech';
+}
+
+.skill-others {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+}
+
+.skill-others .name {
+    font-family: 'Share Tech';
+    font-size: 48px;
+}
+
+.skill-others .description {
+    font-size: 24px;
+    font-family: 'Share Tech';
+    color: gray;
+}
+
+.heading {
+    text-align: left;
+    color: gainsboro;
+    font-family: 'Share Tech';
+    text-transform: uppercase;
+}
+
+.about-me-area {
+    display: flex;
+    flex-direction: row;
+    gap: 144px;
+    text-align: left;
+}
+
+.about-me-area .personal-info-part,
+.about-me-area .experience-part {
+    flex: 1;
+}
+
+.about-me-area .personal-info-part .title {
+    font-size: 48px;
+    line-height: 1.2;
+    font-family: 'Share Tech';
+    height: 115px;
+}
+
+.about-me-area .personal-info-part .body-text {
+    color: gray;
+}
+
+.about-me-area .experience-part {
+    flex: 1;
+}
+
+.xp-details {
+    display: flex;
+    flex-direction: row;
+    height: 115px;
+    align-items: center;
+}
+
+.xp-detail {
+    flex: 1;
+    font-family: 'Share Tech';
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: last baseline;
+    line-height: 1.2;
+}
+
+.xp-detail .number {
+    font-size: 64px;
+}
+
+.xp-detail .text {
+    width: 100px;
+}
+
+.experience-part .body-text {
+    color: gray;
+}
+
+/* --------------------------------END OF TECH/ABOUT ME SECTION------------------------------------- */
+
+.projects-section {
+    height: 100vh;
+    background-color: #202024;
+    padding: 48px 72px;
+    box-sizing: border-box;
+
+}
+
+.project-area {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.project-area .project-options {
+    width: 240px;
+    height: 100%;
+    padding-top: 24px;
+    box-sizing: border-box;
+}
+
+.project-options .option {
+    text-align: left;
+    padding: 18px 6px 6px 6px;
+    border-bottom: 3px solid rgb(87, 255, 205);
+    transition: 0.2s;
+    cursor: pointer;
+    /* margin-bottom: 8px; */
+}
+
+.project-options .option:hover p {
+    transform: translateX(12px);
+    transition: 0.2s;
+}
+
+.project-options .option p {
+    font-family: 'Share Tech';
+    color: white;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.project-area .project-showcase {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 48px;
+    box-sizing: border-box;
+    text-align: left;
+    gap: 24px;
+    transition: 0.2s;
+}
+.project-area .project-showcase.hidden {
+    opacity: 0;
+}
+.project-area .project-showcase.onload .hero-space > .title {
+    transform: translateY(-72%);
+    opacity: 0;
+}
+.project-area .project-showcase.onload .slider-wrapper {
+    transform: translateX(-144px);
+    opacity: 0;
+}
+.project-area .project-showcase.onload .card {
+    margin: 0px 0px;
+    opacity: 0;
+}
+
+.project-showcase .hero-space {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.project-showcase .hero-space > .title {
+    font-family: 'Bebas Neue';
+    text-align: left;
+    line-height: 0.8;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.3s;
+    z-index: 1;
+    
+}
+.project-showcase .hero-space > .title p {
+    font-size: 184px;
+    color: white;
+    font-family: "Bebas Neue";
+}
+
+/* .project-showcase .story {
+} */
+.project-showcase .title {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+.project-showcase .story {
+    position: relative;
+}
+.project-showcase .story .body {
+    display: flex;
+    flex-direction: row;
+}
+.project-showcase .story .body .zoom-icon {
+    margin: 0px 16px;
+    background-color: gainsboro;
+    color: #202024;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.6s;
+}
+.project-showcase .story .body .zoom-icon.pressed {
+    background-color: rgb(100, 100, 100);
+}
+
+.story-box-expand {
+    position: absolute;
+    background-color: rgb(100, 100, 100);
+    height: 200px;
+    width: 100%;
+    border-radius: 22px;
+    bottom: 4px;
+    right: 16px;
+    box-sizing: border-box;
+    transition: 0.6s;
+    z-index: 1;
+
+    padding: 32px 32px 64px 32px;
+    
+    height: 44px;
+    width: 44px;
+    padding: 0px;
+}
+.story-box-expand.collapsed {
+    height: 44px;
+    width: 44px;
+    padding: 0px;
+    background-color: gainsboro;
+}
+.story-box-expand.expanded {
+    background-color: rgb(100, 100, 100);
+    width: 100%;
+    padding: 0px 32px;
+}
+.story-box-expand.padded {
+    padding: 32px 32px 64px 32px;
+}
+.closeBtn {
+    position: absolute;
+    color: #242424;
+    top: 12px;
+    right: 12px;
+    transition: 0.2s;
+}
+.closeBtn span {
+    font-size: 18px;
+}
+.closeBtn.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+.phantom-content {
+    position: absolute;
+    visibility: hidden;
+    z-index: -10;
+}
+.story-box-expand .content {
+    transition: 0.4s;
+}
+.story-box-expand .content.hidden {
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    overflow: hidden;
+}
+.story-box-expand .content.shown {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+
+.story-box-expand .title {
+    color: rgb(180, 180, 180);
+}
+.story-box-expand .text {
+    color: white;
+}
+.project-showcase .story .body .text {
+    flex: 1;
+    color: gray;
+    font-size: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.project-showcase .links {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-end;
+}
+
+.tech-names {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+
+.tech-names .tech-name {
+    color: gray;
+    font-family: 'Share Tech';
+    font-size: 24px;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: 0.4s;
+}
+
+.slider-container {
+    height: 320px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    /* z-index: 1; */
+}
+
+.card {
+    width: 66px;
+    border-radius: 24px;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
+    box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
+    padding: 0px;
+}
+
+.card>.row {
+    height: 50px;
+    color: white;
+    display: flex;
+    flex-wrap: nowrap;
+
+    width: 480px;
+    padding-top: 12px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.card>.row.light {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.card>.row>.icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 15px;
+}
+
+.card>.row>.description {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 380px;
+    /* background-color: aliceblue; */
+    opacity: 0;
+    transform: translateY(30px);
+    transition-delay: 0.3s;
+    transition: all 0.3s ease;
+    gap: 0px;
+    line-height: 1.2;
+}
+
+.card>.row>.description p {
+    color: #b0b0ba;
+    padding-top: 5px;
+    font-size: 12px;
+}
+
+.card>.row>.description h4 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+}
+.card>.row.light>.description p {
+    color: gray;
+}
+
+.card>.row.light>.description h4 {
+    color: #242424;
+}
+
+.slider-container input {
+    display: none;
+}
+
+.slider-container input:checked+label {
+    width: 480px;
+}
+
+.slider-container input:checked+label .description {
+    opacity: 1 !important;
+    transform: translateY(-20px) !important;
+}
+/* 
+.card[for="c1"] {
+    background-image: url(https://i.imgur.com/EytK7km.png);
+}
+.card[for="c2"] {
+    background-image: url(https://i.imgur.com/o8oS32D.png);
+}
+.card[for="c3"] {
+    background-image: url(https://i.imgur.com/ghhTACQ.png);
+}
+.card[for="c4"] {
+    background-image: url(https://i.imgur.com/YQFXZUq.png);
+} */
+
+
+/* ------------------------------END OF PROJECT----------------------------------- */
+
+.contact-me-section {
+    height: 100vh;
+    background-color: #282832;
+    padding: 72px;
+    box-sizing: border-box;
+}
+.contact-me-section .contact-me-area {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    color: white;
+    padding: 64px 0px;
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.contact-me-area .contact-statement,
+.contact-me-area .contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-align: left;
+}
+.contact-me-area .contact-statement {
+    padding-right: 48px;
+    box-sizing: border-box;
+}
+.contact-me-area .contact-form {
+    padding-left: 144px;
+    box-sizing: border-box;
+    gap: 36px;
+}
+.contact-statement .title {
+    font-size: 64px;
+    font-family: 'Share Tech';
+}
+
+.contact-form .inputBox {
+    position: relative;
+
+}
+.inputBox .title {
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    pointer-events: none;
+    transition-duration: 0.3s;
+    color: gray;
+    font-size: 13px;
+}
+.inputBox:hover .title {
+    color: rgb(87, 255, 205);
+    transition-duration: 0.3s;
+}
+.input-primary:valid~.title,
+.input-primary:focus~.title {
+    color: rgb(87, 255, 205);
+    transform: translateY(-20px);
+    font-size: 10px;
+}
+.input-primary.invalid:invalid {
+    border-bottom: 3px solid red;
+}
+.input-primary.invalid:invalid~.title {
+    color: red;
+}
+.personal-information {
+    display: flex;
+    flex-direction: row;
+    color: white;
+}
+.social-links {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    margin: 0 0 0 auto;
+}
+.social-link-img {
+    width: 24px;
+    height: 24px;
+}
