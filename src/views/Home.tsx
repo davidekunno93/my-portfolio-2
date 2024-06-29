@@ -17,25 +17,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
         return new Promise(resolve => setTimeout(resolve, ms))
     };
 
-    // const techSectionRef = useRef<HTMLInputElement>(null);
-    // const aboutMeSectionRef = useRef<HTMLInputElement>(null);
-    // const projectsSectionRef = useRef<HTMLInputElement>(null);
-    // const contactMeSectionRef = useRef<HTMLInputElement>(null);
-    // const scrollToSection = (ref: any) => {
-    //     if (ref === aboutMeSectionRef) {
-    //         window.scrollTo({
-    //             top: ref.current.offsetTop - 75,
-    //             behavior: 'smooth',
-    //         })
-    //     } else {
-    //         window.scrollTo({
-    //             top: ref.current.offsetTop,
-    //             behavior: 'smooth',
-    //         })
-    //     }
-    // };
 
-    // [types]
+    // [types code]
     type Projects = {
         [key: string]: Project
     }
@@ -66,6 +49,15 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
     }
 
 
+    // [hero section]
+    const [text] = useTypewriter({
+        words: ["Web Developer", "Software Engineer", "Team Worker", "React Developer"],
+        loop: false,
+        delaySpeed: 2000,
+    });
+
+
+    // [projects section]
     const projects: Projects = {
         "routewise": {
             id: "routewise",
@@ -73,7 +65,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             icon: "https://i.imgur.com/d2FMf3s.png",
             title: "Route%Wise",
             titleSize: 184,
-            storyText: "I was alerted to a scholarship opportunity for a program, called Co.Lab, as a developer. On my second try I was accepted into the program and joined forces with Product roles and a Backend developer to create a team of 4. We were chosen as one of the few teams to present our product at the end of the 3 month program, and have continued to work on it ever since. RouteWise is crafted for seekers of adventure and aims to make planning and itinerary creation a simple piece of the travelling 'puzzle'. Using an interactive map and place suggestions, users are able to build a list of places to visit on their trip and generate itineraries which optimize for convenience and proximity.",
+            storyText: "I was alerted to a scholarship opportunity for a program, called Co.Lab, as a developer. On my second try I was accepted into the program and joined forces with Product roles and a Backend developer to create a team of 4. We were chosen as one of the few teams to present our product at the end of the 3 month program, and have continued to work on it ever since. On thi project I am the sole Frontend Developer using React JS. I also integrated Firebase for user management and collaborate with the Backend Developer when developing Backend functionalities such as developing the code to generate user itineraries based on proximity. On the Frontend I've incorporated several APIs to create a seamless user flow allowing users to search for places on an embedded map with autocomplete addresses for places within the scope of the user's travel destination and data structures so they can readily move places between itinerary and saved places and even find new places to visit in a suggested places panel.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
             githubLink: "https://github.com/davidekunno93/Routewise-FrontEnd",
             websiteLink: "https://routewise-front-end.vercel.app/",
@@ -114,7 +106,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             icon: "https://i.imgur.com/p5VDkun.png",
             title: "Things%To-Do",
             titleSize: 164,
-            storyText: "I made this to-do list (with a twist) style application to be my own personal productivity companion. I often create lists of things to do on my phone and wanted a more organized platform which would be intuitive to my needs and improve my time management skills. My first goal was to make the user experience feel really smooth, intuitive and fun, and my second goal was to have lots of customizable task details without too much clutter. I designed the web app to have smooth animation and several editable task details that are hidden away until you click to expand the task. Completed tasks can also be traded in for points in order to incentivize user to complete tasks daily.",
+            storyText: "I made this to-do list (with a twist) style application to be my own personal productivity companion. I often create lists of things to do on my phone and wanted a more organized platform which would be intuitive to my needs and improve my time management skills. My first goal was to make the user experience feel really smooth, intuitive and fun, and my second goal was to have lots of customizable task details without too much clutter. I designed the web app to have smooth animations and several editable task details that are hidden away until you click to expand them. Completed tasks can also be traded in for points in order to incentivize users to complete tasks daily.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase", "Python", "Flask", "Postgresql"],
             githubLink: "https://github.com/davidekunno93/things-to-do-app-frontend",
             websiteLink: "https://things-to-do-app-frontend-cvfo.vercel.app/",
@@ -155,7 +147,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             icon: "https://i.imgur.com/HJAapYA.png",
             title: "Resear-%ch App",
             titleSize: 164,
-            storyText: "I wanted to create a web application with TypeScript and this web app presented the perfect opportunity for me to do that. Working  as Research Coordinator at Advanced Rheumatology of Houston I had to keep track of patient visits, and coordinate the future visits within specific visit windows. The work of calculating these visit windows, updating visit data, and looking up study information can be quite tedious and grueling especially when data is in different places. This is where the web application comes in. I created it specifically for my clinic's needs; it contains several research studies conducted by the clinic so study information is more readily accessible, visit windows are auto-calculated using study and previous visit data, and all of this is delivered on a smooth and aesthetic database platform.",
+            storyText: "I wanted to create a web application with TypeScript and this web app presented the perfect opportunity for me to do that. Working  as a Research Coordinator at Advanced Rheumatology of Houston I had to keep track of patient visits, and coordinate future visits within specific visit windows. The work of calculating these visit windows, updating visit data, and looking up study information can be quite tedious and grueling especially when data is in different places. This is where the Research Visit Tracker App comes in. Specifically tailored to the needs of my clinic, it contains several research studies conducted by the clinic so study information is more readily accessible, visit windows are auto-calculated as you use the web app for each specific study using previous visit data, and packaged in a modern looking database platform.",
             technologies: ["HTML", "CSS", "TypeScript", "React"],
             githubLink: "https://github.com/davidekunno93/research-app-frontend",
             websiteLink: null,
@@ -218,7 +210,6 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             }
         },
     }
-
 
     const [selectedProject, setSelectedProject] = useState<Project>(projects["routewise"]);
     const [phantomStoryDimensions, setPhantomStoryDimensions] = useState<Dimensions>({
@@ -308,11 +299,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             }
         }
     }
-    const [text] = useTypewriter({
-        words: ["Web Developer", "Software Engineer", "Team Worker", "React Developer"],
-        loop: false,
-        delaySpeed: 2000,
-    });
+
 
     // [contact form]
     const contactFormRef = useRef<HTMLFormElement>(null);
@@ -346,7 +333,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
     //         isValid = false;
     //         nameInput.classList.add("invalid");
     //     }
-        
+
     //     // check email
     //     const emailInput: any = document.getElementById('email-input');
     //     if (!emailInput.value) {
@@ -374,10 +361,12 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
         messageInput.value = "";
     }
 
+
     return (
         <>
-        <MessageSentOverlay open={messageSentOverlayOpen} userName={userName} onClose={() => setMessageSentOverlayOpen(false)} />
+            <MessageSentOverlay open={messageSentOverlayOpen} userName={userName} onClose={() => setMessageSentOverlayOpen(false)} />
             <div className="hero-section">
+                <img src="https://i.imgur.com/g0ZSvBo.png" alt="" className="hero-img" />
                 <div className="intro-area">
                     <p className="intro-heading font-tech gray-text"><span className="lightgreen-text">/</span> INTRODUCTION</p>
                     <div className="intro-name">
@@ -484,7 +473,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                                 <div className="text">Projects worked on</div>
                             </div>
                         </div>
-                        <p className="body-text">I've worked on several fun and challenging projects includiing a streaming service, travel social platform, meditation website etc. Though I've worked many projects independently, I prefer to collaborate with others on a team and have more stream-lined responsibilities with more creative input.</p>
+                        <p className="body-text">I've worked on several fun and challenging projects includiing a streaming service, travel social platform, meditation website etc. Though I've worked many projects independently, I prefer to collaborate with others on a team and have more stream-lined responsibilities and more creative input.</p>
                     </div>
                 </div>
             </div>
@@ -510,7 +499,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
 
                                     {Object.values(selectedProject.imgs).map((img, index) => {
                                         const num = index + 1;
-                                        return <><input key={index} id={`c${num}`} type="radio" name='slide' defaultChecked />
+                                        return <><input key={index} id={`c${num}`} type="radio" name='slide' defaultChecked={num === 1 ? true : false} />
                                             <label className='card' htmlFor={`c${num}`} style={{ backgroundImage: `url(${img.imgUrl})` }}>
                                                 <div className="row">
                                                     <div className={`icon ${img.googleIcon && "material-symbols-outlined"}`}>{img.icon}</div>

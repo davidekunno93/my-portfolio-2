@@ -36,7 +36,7 @@ Text of project needs to not interfere with image selection (Things To Do)
 <!-- Update about me experience section text -->
 <!-- type writing words in hero section: web developer, react developer, team worker, full-stack engineer -->
 <!-- contact form emailTo -->
-view on github 
+<!-- view on github  -->
 hero picture
 <!-- message sent animation -->
 

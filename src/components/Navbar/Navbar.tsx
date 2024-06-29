@@ -28,7 +28,7 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
       openNavDropdown();
     }
   }
-  const [navbarCollapsed, setNavbarCollapsed] = useState<boolean>(true);
+  const [navbarCollapsed, setNavbarCollapsed] = useState<boolean>(false);
   const listenScrollEvent = () => {
     if (window.scrollY > 44) {
       setNavbarCollapsed(true);
