@@ -563,7 +563,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 <div className="contact-me-area">
                     <div className="contact-statement">
                         <p className="title">Contact Me</p>
-                        <p className="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium corporis, quae laudantium expedita impedit sequi.</p>
+                        <p className="text">Send me a personal message directly to my email. Feel free to reach out with questions, feedback or requests.</p>
                     </div>
 
                     <form ref={contactFormRef} onSubmit={(e) => sendEmail(e)} className="contact-form">
