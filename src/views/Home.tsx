@@ -87,14 +87,14 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 3: {
                     title: "Add Places",
                     desc: "Search places on the interactive map and build your itinerary",
-                    imgUrl: "https://i.imgur.com/ghhTACQ.png",
+                    imgUrl: "https://i.imgur.com/Wre2n4Z.png",
                     googleIcon: true,
                     icon: "location_on"
                 },
                 4: {
                     title: "Customize Itinerary",
                     desc: "Drag 'n' drop places, add new places and finalize your itinerary",
-                    imgUrl: "https://i.imgur.com/YQFXZUq.png",
+                    imgUrl: "https://i.imgur.com/b5lVva4.png",
                     googleIcon: true,
                     icon: "map"
                 },
@@ -413,7 +413,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                         <p className="title">FOLLOW ME</p>
                         <div className="icon-links">
                             <Link to='https://github.com/davidekunno93' target='_blank'><img src="https://i.imgur.com/A3c3kUB.png" alt="" className="github icon-link" /></Link>
-                            <Link to='https://www.linkedin.com/in/david-ekunno-794619a3/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin icon-link" /></Link>
+                            <Link to='https://www.linkedin.com/in/davidekunno/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin icon-link" /></Link>
                             <Link to='https://www.instagram.com/davidekunno/?hl=env' target='_blank'><img src="https://i.imgur.com/lsL7FFK.png" alt="" className="instagram icon-link" /></Link>
                         </div>
                     </div>
@@ -588,7 +588,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                     <p>David Ekunno</p>
                     <div className="social-links">
                         <Link to='https://www.instagram.com/davidekunno/?hl=en' target='_blank'><img src="https://i.imgur.com/lsL7FFK.png" alt="" className="instagram social-link-img" /></Link>
-                        <Link to='https://www.linkedin.com/in/david-ekunno-794619a3/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin social-link-img" /></Link>
+                        <Link to='https://www.linkedin.com/in/davidekunno/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin social-link-img" /></Link>
                         <Link to='https://github.com/davidekunno93' target='_blank'><img src="https://i.imgur.com/A3c3kUB.png" alt="" className="github social-link-img" /></Link>
                     </div>
                 </div>
