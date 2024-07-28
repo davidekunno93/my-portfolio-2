@@ -10,7 +10,7 @@
     gap: 12px;
 }
 .footer[data-mobileMode="true"] {
-    padding: 24px 36px;
+    padding: 36px;
     height: auto;
     text-align: center;
 }
