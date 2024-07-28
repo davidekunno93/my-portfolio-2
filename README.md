@@ -41,9 +41,9 @@ hero picture
 <!-- message sent animation -->
 
 <!-- Phone responsive -->
-about me text size
-hero img placement on phone
+<!-- about me text size -->
+hero img placement on phone?
 update story pop up - add scroller
-set img shuffler index to 0 after fade
-general spacing can be improved
+<!-- set img shuffler index to 0 after fade -->
+<!-- general spacing can be improved -->
 close btn in story popup?

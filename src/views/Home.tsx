@@ -272,7 +272,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
 
             wait(600).then(() => {
                 if (storyBoxRef.current && phantomStoryDimensions.fullHeight) {
-                    storyBoxRef.current.style.height = phantomStoryDimensions.fullHeight.toString() + "px";
+                    // storyBoxRef.current.style.height = phantomStoryDimensions.fullHeight.toString() + "px";
+                    storyBoxRef.current.style.height = "260px";
                     storyBoxRef.current?.classList.add("padded");
                 }
                 wait(400).then(() => {
@@ -313,6 +314,9 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 projectShowcaseRef.current.classList.add("hidden");
                 storyBoxFunctions.collapseBox();
                 wait(300).then(() => {
+                    // set mobileMode img shuffler index to 0
+                    setImgShuffleIndex(0)
+
                     // update projectState
                     setSelectedProject(projects[projectId]);
                     // add onload to showcase
@@ -540,7 +544,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                                         {index !== 0 && mobileMode &&
                                             <span className='divider mx-2 lightgreen-text'>/</span>
                                         }
-                                        <div key={index} onClick={() => { updateProject(project.id); setImgShuffleIndex(0) }} className="option">
+                                        <div key={index} onClick={() => { updateProject(project.id) }} className="option">
                                             <p>{project.projectName}</p>
                                         </div>
                                     </>
@@ -607,15 +611,15 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                         </div>
                         <div className="story">
                             <div ref={phantomRef} className="phantom-content">
-                                <p className="title">THE STORY</p>
+                                {/* <p className="title">THE STORY</p> */}
                                 <p className="text">{selectedProject.storyText}</p>
                             </div>
                             <div ref={storyBoxRef} className="story-box-expand collapsed">
-                                <div ref={storyBoxCloseBtnRef} onClick={() => storyBoxFunctions.collapseBox()} className="closeBtn hidden">
+                                {/* <div ref={storyBoxCloseBtnRef} onClick={() => storyBoxFunctions.collapseBox()} className="closeBtn hidden">
                                     <span className="material-symbols-outlined">close</span>
-                                </div>
+                                </div> */}
                                 <div ref={storyBoxContentRef} className="content hidden">
-                                    <p className="title">THE STORY</p>
+                                    {/* <p className="title">THE STORY</p> */}
                                     <p className="text">{selectedProject.storyText}</p>
                                 </div>
                             </div>
