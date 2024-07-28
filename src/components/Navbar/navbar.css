@@ -35,6 +35,11 @@
     padding-left: 72px;
 }
 
+.menu-dropper[data-mobileMode="true"] {
+    top: 12px;
+    right: 12px;
+    box-shadow: 0 0 12px rgba(87, 255, 205, 0.5);
+}
 .menu-dropper {
     background-color: rgb(87, 255, 205);
     height: 42px;
@@ -224,3 +229,5 @@
 .navbar-options p {
     font-size: 12px;
 }
+
+

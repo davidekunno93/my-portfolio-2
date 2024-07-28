@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const DataProvider = (props: any) => {
     // [helper functions]
@@ -15,8 +15,27 @@ const DataProvider = (props: any) => {
         }
     }
 
+    // [mobile mode]
+    const [mobileMode, setMobileMode] = useState<boolean>(false);
+
+    const handleResize = () => {
+        // console.log(window.innerWidth)
+        // console.log(document.documentElement.clientWidth)
+        if (document.documentElement.clientWidth <= 768) {
+            setMobileMode(true);
+            console.log("Mobile Mode is On")
+        } else {
+            setMobileMode(false);
+        }
+    }
+    useEffect(() => {
+        handleResize()
+        window.addEventListener("resize", handleResize, true);
+        return () => window.removeEventListener("resize", handleResize)
+    }, [])
+
     return (
-        <DataContext.Provider value={{ textFunctions }}>
+        <DataContext.Provider value={{ textFunctions, mobileMode }}>
             {props.children}
         </DataContext.Provider>
     )

@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import './views.css'
-import { useEffect, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { SectionRefs } from '../App';
 import { Cursor, useTypewriter } from 'react-simple-typewriter';
 import emailjs from '@emailjs/browser';
 import MessageSentOverlay from '../components/Overlays/MessageSentOverlay';
+import { DataContext } from '../context/DataProvider';
 
 type homeProps = {
     refs: SectionRefs
@@ -12,6 +13,9 @@ type homeProps = {
 }
 
 const Home = ({ refs, scrollToSection }: homeProps) => {
+    // [imports]
+    const { mobileMode } = useContext(DataContext);
+
     // [helper functions]
     function wait(ms: number) {
         return new Promise(resolve => setTimeout(resolve, ms))
@@ -211,6 +215,33 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
         },
     }
 
+    const [projectsScrollOffset, setProjectsScrollOffset] = useState<number>(0);
+    const scrollProjects = (direction: string) => {
+        const inner = document.getElementById('projects-inner');
+        // console.log(inner?.clientWidth)
+        // console.log(inner?.scrollWidth)
+
+        if (direction === "right") {
+            if (inner?.scrollWidth && inner.clientWidth) {
+                let offsetDiff = inner.scrollWidth - (inner.clientWidth + projectsScrollOffset);
+                console.log(offsetDiff)
+                if (offsetDiff > 80) {
+                    setProjectsScrollOffset(projectsScrollOffset + 80);
+                } else {
+                    setProjectsScrollOffset(projectsScrollOffset + offsetDiff);
+                }
+            }
+        } else if (direction === "left") {
+            if (projectsScrollOffset > 80) {
+                setProjectsScrollOffset(projectsScrollOffset - 80);
+            } else {
+                setProjectsScrollOffset(0);
+            }
+        }
+
+    }
+    const [imgShuffleIndex, setImgShuffleIndex] = useState<number>(0);
+
     const [selectedProject, setSelectedProject] = useState<Project>(projects["routewise"]);
     const [phantomStoryDimensions, setPhantomStoryDimensions] = useState<Dimensions>({
         fullWidth: null,
@@ -365,11 +396,11 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
     return (
         <>
             <MessageSentOverlay open={messageSentOverlayOpen} userName={userName} onClose={() => setMessageSentOverlayOpen(false)} />
-            <div className="hero-section">
+            <div className="hero-section" data-mobileMode={mobileMode ? "true" : "false"}>
                 <img src="https://i.imgur.com/g0ZSvBo.png" alt="" className="hero-img" />
                 <div className="intro-area">
                     <p className="intro-heading font-tech gray-text"><span className="lightgreen-text">/</span> INTRODUCTION</p>
-                    <div className="intro-name">
+                    <div className="intro-name" data-mobileMode={mobileMode ? "true" : "false"}>
                         <p>I'm David, a </p>
                         <p style={{ color: 'rgb(87, 255, 205)' }}>{text}<span><Cursor /></span></p>
                     </div>
@@ -378,49 +409,51 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                         <span className="material-symbols-outlined">arrow_downward_alt</span>
                     </div>
                 </div>
-                <div className="links-area">
-                    <div className="about-me-link">
-                        <p className="title">ABOUT ME</p>
-                        <p className="body-text">Born and raised in London, now living in the US. I found Python in 2022 and the rest is history. I'm a Junior Developer but thanks to consistent habits and enjoyment for this work I've exceled very quickly in this field...</p>
-                        <div className="flx">
-                            <div onClick={() => scrollToSection(refs.aboutMeSectionRef)} className="text-link">
-                                <p>LEARN MORE</p>
-                                <span className="material-symbols-outlined">arrow_forward</span>
-                            </div>
-                        </div>
-                    </div>
-                    <hr className='faded-line' />
-                    <div className="my-work-link">
-                        <p className="title">MY WORK</p>
-                        <div className="project-boxes">
-                            {Object.values(projects).map((project, index) => {
-                                return <div key={index} onClick={() => { scrollToSection(refs.projectsSectionRef); updateProject(project.id) }} className="project-box">
-                                    <img src={project.icon} alt="" className="project-img" />
-                                    <p className="project-title">{project.projectName}</p>
+                {!mobileMode &&
+                    <div className="links-area">
+                        <div className="about-me-link">
+                            <p className="title">ABOUT ME</p>
+                            <p className="body-text">Born and raised in London, now living in the US. I found Python in 2022 and the rest is history. I'm a Junior Developer but thanks to consistent habits and enjoyment for this work I've exceled very quickly in this field...</p>
+                            <div className="flx">
+                                <div onClick={() => scrollToSection(refs.aboutMeSectionRef)} className="text-link">
+                                    <p>LEARN MORE</p>
+                                    <span className="material-symbols-outlined">arrow_forward</span>
                                 </div>
-                            })}
-
+                            </div>
                         </div>
-                        <div className="flx">
-                            <div onClick={() => scrollToSection(refs.projectsSectionRef)} className="text-link">
-                                <p>BROWSE PORTFOLIO</p>
-                                <span className="material-symbols-outlined">arrow_forward</span>
+                        <hr className='faded-line' />
+                        <div className="my-work-link">
+                            <p className="title">MY WORK</p>
+                            <div className="project-boxes">
+                                {Object.values(projects).map((project, index) => {
+                                    return <div key={index} onClick={() => { scrollToSection(refs.projectsSectionRef); updateProject(project.id) }} className="project-box">
+                                        <img src={project.icon} alt="" className="project-img" />
+                                        <p className="project-title">{project.projectName}</p>
+                                    </div>
+                                })}
+
+                            </div>
+                            <div className="flx">
+                                <div onClick={() => scrollToSection(refs.projectsSectionRef)} className="text-link">
+                                    <p>BROWSE PORTFOLIO</p>
+                                    <span className="material-symbols-outlined">arrow_forward</span>
+                                </div>
+                            </div>
+                        </div>
+                        <hr className='faded-line' />
+                        <div className="follow-me-link">
+                            <p className="title">FOLLOW ME</p>
+                            <div className="icon-links">
+                                <Link to='https://github.com/davidekunno93' target='_blank'><img src="https://i.imgur.com/A3c3kUB.png" alt="" className="github icon-link" /></Link>
+                                <Link to='https://www.linkedin.com/in/davidekunno/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin icon-link" /></Link>
+                                <Link to='https://www.instagram.com/davidekunno/?hl=env' target='_blank'><img src="https://i.imgur.com/lsL7FFK.png" alt="" className="instagram icon-link" /></Link>
                             </div>
                         </div>
                     </div>
-                    <hr className='faded-line' />
-                    <div className="follow-me-link">
-                        <p className="title">FOLLOW ME</p>
-                        <div className="icon-links">
-                            <Link to='https://github.com/davidekunno93' target='_blank'><img src="https://i.imgur.com/A3c3kUB.png" alt="" className="github icon-link" /></Link>
-                            <Link to='https://www.linkedin.com/in/davidekunno/' target='_blank'><img src="https://i.imgur.com/14o2J4P.png" alt="" className="linkedin icon-link" /></Link>
-                            <Link to='https://www.instagram.com/davidekunno/?hl=env' target='_blank'><img src="https://i.imgur.com/lsL7FFK.png" alt="" className="instagram icon-link" /></Link>
-                        </div>
-                    </div>
-                </div>
+                }
             </div>
 
-            <div ref={refs.techSectionRef} className="tech-about-me-section">
+            <div ref={refs.techSectionRef} className="tech-about-me-section" data-mobileMode={mobileMode ? "true" : "false"}>
                 <div className="heading"><span className="lightgreen-text">/</span> TECHS</div>
                 <div className="tech-area">
 
@@ -466,11 +499,11 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                         <div className="xp-details">
                             <div className="xp-detail">
                                 <div className="number">2+</div>
-                                <div className="text">Years of experience</div>
+                                <div className="text">Years of <br />experience</div>
                             </div>
                             <div className="xp-detail">
                                 <div className="number">10+</div>
-                                <div className="text">Projects worked on</div>
+                                <div className="text">Projects <br />worked on</div>
                             </div>
                         </div>
                         <p className="body-text">I've worked on several fun and challenging projects includiing a streaming service, travel social platform, meditation website etc. Though I've worked many projects independently, I prefer to collaborate with others on a team and have more stream-lined responsibilities and more creative input.</p>
@@ -478,43 +511,99 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 </div>
             </div>
 
-            <div ref={refs.projectsSectionRef} className="projects-section">
+            <div ref={refs.projectsSectionRef} className="projects-section" data-mobileMode={mobileMode ? "true" : "false"}>
                 <div className="heading"><span className="lightgreen-text">/</span> PROJECTS</div>
                 <div className="project-area">
-                    <div className="project-options">
-                        {Object.values(projects).map((project, index) => {
-                            return <div key={index} onClick={() => updateProject(project.id)} className="option"><p>{project.projectName}</p></div>
-                        })}
 
+                    <div className="carousel-container">
+                        {mobileMode &&
+                            <>
+                                <div onClick={() => scrollProjects("left")} className="left-btn">
+                                    <span className="material-symbols-outlined dark-text">
+                                        arrow_back_ios
+                                    </span>
+                                </div>
+                                <div onClick={() => scrollProjects("right")} className="right-btn">
+                                    <span className="material-symbols-outlined dark-text">
+                                        arrow_forward_ios
+                                    </span>
+                                </div>
+                            </>
+                        }
+                        <div className="project-options-window">
+
+                            {/* inner */}
+                            <div id='projects-inner' className="project-options" style={{ transform: `translateX(-${projectsScrollOffset}px)` }}>
+
+                                {Object.values(projects).map((project, index) => {
+                                    return <>
+                                        {index !== 0 && mobileMode &&
+                                            <span className='divider mx-2 lightgreen-text'>/</span>
+                                        }
+                                        <div key={index} onClick={() => { updateProject(project.id); setImgShuffleIndex(0) }} className="option">
+                                            <p>{project.projectName}</p>
+                                        </div>
+                                    </>
+                                })}
+
+                            </div>
+                        </div>
                     </div>
                     <div ref={projectShowcaseRef} className="project-showcase onloa hidde">
                         <div className="hero-space">
-                            <div className="title">
-                                {selectedProject.title.split("%").map((str, index) => {
-                                    return <p key={index}>{str}</p>
-                                })}
-                            </div>
-                            <div className="slider-wrapper">
-                                <div className="slider-container">
-
-                                    {Object.values(selectedProject.imgs).map((img, index) => {
-                                        const num = index + 1;
-                                        return <><input key={index} id={`c${num}`} type="radio" name='slide' defaultChecked={num === 1 ? true : false} />
-                                            <label className='card' htmlFor={`c${num}`} style={{ backgroundImage: `url(${img.imgUrl})` }}>
-                                                <div className="row">
-                                                    <div className={`icon ${img.googleIcon && "material-symbols-outlined"}`}>{img.icon}</div>
-                                                    <div className="description">
-                                                        <h4>{img.title}</h4>
-                                                        <p>{img.desc}</p>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        </>
+                            {mobileMode ?
+                                <p className="title-inline">
+                                    {selectedProject.projectName}
+                                </p>
+                                :
+                                <div className="title">
+                                    {selectedProject.title.split("%").map((str, index) => {
+                                        return <p key={index}>{str}</p>
                                     })}
-
-
                                 </div>
-                            </div>
+                            }
+
+                            {mobileMode ?
+                                <div className="image-shuffler">
+                                    <div className="imgDiv">
+                                        <div className="img-select">
+                                            {Object.values(selectedProject.imgs).map((img, index) => {
+                                                return <div key={index} onClick={() => setImgShuffleIndex(index)} className="option">
+                                                    <span className='material-symbols-outlined'>{img.icon}</span>
+                                                </div>
+                                            })}
+
+                                        </div>
+                                        <img src={selectedProject.imgs[imgShuffleIndex + 1].imgUrl} alt="" className="img" />
+                                    </div>
+                                    <div className="caption">
+                                        <p>{selectedProject.imgs[imgShuffleIndex + 1].title}</p>
+                                    </div>
+                                </div>
+                                :
+                                <div className="slider-wrapper">
+                                    <div className="slider-container">
+
+                                        {Object.values(selectedProject.imgs).map((img, index) => {
+                                            const num = index + 1;
+                                            return <><input key={index} id={`c${num}`} type="radio" name='slide' defaultChecked={num === 1 ? true : false} />
+                                                <label className='card' htmlFor={`c${num}`} style={{ backgroundImage: `url(${img.imgUrl})` }}>
+                                                    <div className="row">
+                                                        <div className={`icon ${img.googleIcon && "material-symbols-outlined"}`}>{img.icon}</div>
+                                                        <div className="description">
+                                                            <h4>{img.title}</h4>
+                                                            <p>{img.desc}</p>
+                                                        </div>
+                                                    </div>
+                                                </label>
+                                            </>
+                                        })}
+
+
+                                    </div>
+                                </div>
+
+                            }
                         </div>
                         <div className="story">
                             <div ref={phantomRef} className="phantom-content">
@@ -558,7 +647,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
 
             </div>
 
-            <div ref={refs.contactMeSectionRef} className="contact-me-section">
+            <div ref={refs.contactMeSectionRef} className="contact-me-section" data-mobileMode={mobileMode ? "true" : "false"}>
                 <div className="heading"><span className="lightgreen-text">/</span> CONTACT ME</div>
                 <div className="contact-me-area">
                     <div className="contact-statement">
@@ -579,7 +668,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                             <textarea name="message" id="message-input" rows={3} className="input-primary w-100" required></textarea>
                             <label htmlFor="message-input" className='title'>MESSAGE</label>
                         </div>
-                        <div className="flx aligns-r">
+                        <div className="btn-holder">
                             <button className="btn-primary">Send Message</button>
                         </div>
                     </form>

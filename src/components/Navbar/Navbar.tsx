@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useContext, useEffect, useRef, useState } from 'react'
 import './navbar.css'
 import { Link } from 'react-router-dom';
 import { SectionRefs } from '../../App';
+import { DataContext } from '../../context/DataProvider';
 
 type navbarProps = {
   refs: SectionRefs
@@ -9,6 +10,9 @@ type navbarProps = {
 }
 
 const Navbar = ({ refs, scrollToSection }: navbarProps) => {
+  // imports
+  const { mobileMode } = useContext(DataContext);
+
   const str = "</>"
 
   const navDropperRef = useRef<HTMLInputElement>(null);
@@ -44,16 +48,18 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
 
 
   return (
-    <div className={`navbar transparent`}>
+    <div className={`navbar transparent ${mobileMode && "vw100"}`}>
       <div className="fillDiv">
-
         {/* left side of navbar */}
-        <div className={`navbar-logo ${navbarCollapsed && "hidden"}`}>
-          <p><span className='blue-text bold500'>{str}</span> David Ekunno</p>
-        </div>
+        {!mobileMode &&
+          < div className={`navbar-logo ${navbarCollapsed && "hidden"}`}>
+            <p><span className='blue-text bold500'>{str}</span> David Ekunno</p>
+          </div>
+        }
 
         {/* right side of navbar */}
         <div className="position-right flx-r">
+        {!mobileMode &&
           <div className={`navbar-options ${navbarCollapsed && "collapsed"}`}>
             <div onClick={() => scrollToSection()} className="option">
               <p>Home</p>
@@ -73,7 +79,8 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
               </button></Link>
             </div>
           </div>
-          <div onClick={() => toggleNavDropdown()} ref={navDropperRef} className={`menu-dropper ${!navbarCollapsed && "hidden"}`}>
+        }
+          <div onClick={() => toggleNavDropdown()} ref={navDropperRef} className={`menu-dropper ${!navbarCollapsed && !mobileMode && "hidden"}`} data-mobileMode={mobileMode ? "true" : "false"}>
             <div className="content">
               <span className="line-1"></span>
               <span className="line-2"></span>
@@ -108,7 +115,7 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
         </div>
 
       </div>
-    </div>
+    </div >
   )
 }
 export default Navbar;

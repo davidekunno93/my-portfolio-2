@@ -1,5 +1,5 @@
 .hero-section {
-    width: 100%;
+    /* width: 100%; */
     height: calc(100vh - 48px);
     height: 100vh;
     background-color: #202024;
@@ -7,6 +7,12 @@
     flex-direction: row;
     text-align: left;
     overflow: hidden;
+}
+.hero-section[data-mobileMode="true"] {
+    width: 100vw;
+}
+.hero-section[data-mobileMode="true"] .intro-area {
+    padding: 48px;
 }
 
 .hero-section>.intro-area {
@@ -31,6 +37,9 @@
     font-weight: 500;
     font-family: 'Share Tech';
     line-height: 1.2;
+}
+.hero-section>.intro-area .intro-name[data-mobileMode="true"] p {
+    font-size: 8vw;
 }
 
 .hero-section>.intro-area .intro-summary {
@@ -188,7 +197,8 @@
 .tech-about-me-section {
     background-color: #282832;
     color: white;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
     width: 100%;
     padding: 56px 72px;
     box-sizing: border-box;
@@ -198,9 +208,12 @@
     justify-content: space-between;
 }
 
-/* .tech-area {
-    
-} */
+.tech-about-me-section[data-mobileMode="true"] {
+    width: 100vw;
+    height: auto;
+    padding: 36px;
+}
+
 .skills-list {
     display: flex;
     flex-direction: row;
@@ -208,7 +221,15 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.tech-about-me-section[data-mobileMode="true"] .skills-list {
+    margin-top: 24px;
+    gap: 0px 24px;
+    justify-content: center;
+}
 
+.tech-about-me-section[data-mobileMode="true"] .skill {
+    width: max-content;
+}
 .skill {
     width: 200px;
     height: 100px;
@@ -222,12 +243,18 @@
     font-weight: 500;
     font-family: 'Share Tech';
 }
+.tech-about-me-section[data-mobileMode="true"] .skill .name {
+    font-size: 6vw;
+}
 
 .skill .description {
     font-size: 14px;
     color: gray;
     font-weight: 500;
     font-family: 'Share Tech';
+}
+[data-mobileMode="true"] .skill-others .description {
+    font-size: 20px;
 }
 
 .skill-others {
@@ -254,11 +281,17 @@
     text-transform: uppercase;
 }
 
+
 .about-me-area {
     display: flex;
     flex-direction: row;
     gap: 144px;
     text-align: left;
+}
+.tech-about-me-section[data-mobileMode="true"] .about-me-area {
+    flex-direction: column;
+    gap: 36px;
+    margin-top: 24px;
 }
 
 .about-me-area .personal-info-part,
@@ -272,9 +305,19 @@
     font-family: 'Share Tech';
     height: 115px;
 }
+.tech-about-me-section[data-mobileMode="true"] .personal-info-part .title {
+    font-size: 9vw;
+    line-height: 1.2;
+    font-family: 'Share Tech';
+    height: auto;
+    text-align: center;
+}
 
 .about-me-area .personal-info-part .body-text {
     color: gray;
+}
+.tech-about-me-section[data-mobileMode="true"] .about-me-area .body-text {
+ text-align: center;
 }
 
 .about-me-area .experience-part {
@@ -286,6 +329,12 @@
     flex-direction: row;
     height: 115px;
     align-items: center;
+}
+.tech-about-me-section[data-mobileMode="true"] .xp-details {
+    height: auto;
+}
+.tech-about-me-section[data-mobileMode="true"] .xp-detail {
+    justify-content: center;
 }
 
 .xp-detail {
@@ -301,9 +350,12 @@
 .xp-detail .number {
     font-size: 64px;
 }
+.tech-about-me-section[data-mobileMode="true"] .xp-detail .number {
+    font-size: 12vw;
+}
 
-.xp-detail .text {
-    width: 100px;
+.tech-about-me-section[data-mobileMode="true"] .xp-detail .text {
+    font-size: 3vw;
 }
 
 .experience-part .body-text {
@@ -317,7 +369,11 @@
     background-color: #202024;
     padding: 48px 72px;
     box-sizing: border-box;
-
+}
+.projects-section[data-mobileMode="true"] {
+    padding: 48px 36px;
+    width: 100vw;
+    height: auto;
 }
 
 .project-area {
@@ -325,12 +381,75 @@
     flex-direction: row;
     height: 100%;
 }
+.projects-section[data-mobileMode="true"] .project-area {
+    flex-direction: column;
+}
 
 .project-area .project-options {
     width: 240px;
     height: 100%;
     padding-top: 24px;
     box-sizing: border-box;
+}
+
+.projects-section[data-mobileMode="true"] .carousel-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.projects-section[data-mobileMode="true"] .project-options-window {
+    /* background-color: red; */
+    width: calc(100% - 64px);
+    overflow: hidden;
+    box-sizing: border-box;
+    position: relative;
+    
+}
+.projects-section[data-mobileMode="true"] .carousel-container .left-btn,
+.projects-section[data-mobileMode="true"] .carousel-container .right-btn {
+    width: 20px;
+    height: 20px;
+    background-color: rgb(87, 255, 205);
+    border-radius: 50%;
+    display: flex;
+    position: absolute;
+    bottom: 6px;
+    /* box-shadow: 0 0 4px rgba(87, 255, 205, 0.4); */
+}
+.projects-section[data-mobileMode="true"] .carousel-container .left-btn {
+    left: 0px;
+}
+.projects-section[data-mobileMode="true"] .carousel-container .right-btn {
+    right: 0px;
+}
+.projects-section[data-mobileMode="true"] .carousel-container .left-btn span,
+.projects-section[data-mobileMode="true"] .carousel-container .right-btn span {
+    font-size: 16px;
+    margin: auto;
+    padding-left: 4px;
+}
+
+.projects-section[data-mobileMode="true"] .project-options {
+    display: flex;
+    padding-top: 16px;
+    /* padding-left: 32px;
+    padding-right: 32px; */
+    /* background-color: red; */
+    height: 46px;
+    width: 100%;
+    /* transform: translateX(-80px); */
+    transition: 0.2s;
+}
+
+.projects-section[data-mobileMode="true"] .project-options .option {
+    /* width: 120px !important; */
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    height: 18px;
+    padding: 6px 0px;
+    border-bottom: none;
 }
 
 .project-options .option {
@@ -346,12 +465,16 @@
     transform: translateX(12px);
     transition: 0.2s;
 }
+.projects-section[data-mobileMode="true"] .project-options .option:hover p {
+    transform: none;
+}
 
 .project-options .option p {
     font-family: 'Share Tech';
     color: white;
     font-size: 18px;
     transition: 0.2s;
+    white-space: nowrap;
 }
 
 .project-area .project-showcase {
@@ -365,6 +488,9 @@
     gap: 24px;
     transition: 0.2s;
 }
+.projects-section[data-mobileMode="true"] .project-showcase {
+    padding-left: 0;
+}
 .project-area .project-showcase.hidden {
     opacity: 0;
 }
@@ -372,6 +498,52 @@
     transform: translateY(-72%);
     opacity: 0;
 }
+
+.image-shuffler {
+    height: 60vw;
+    display: flex;
+    flex-direction: column;
+
+}
+.image-shuffler .imgDiv {
+    flex: 1;
+    /* max-height: 300px; */
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.image-shuffler .imgDiv .img {
+    height: 100%;
+    object-fit: contain;
+}
+.image-shuffler .imgDiv .img-select {
+    position: absolute;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.image-shuffler .imgDiv .img-select .option {
+    background-color: #202024;
+    box-shadow: 0 0 12px #20202425;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+}
+.image-shuffler .imgDiv .img-select .option span {
+    margin: auto;
+    color: white;
+    font-size: 22px;
+}
+
+.image-shuffler .caption {
+    color: gainsboro;
+    font-size: 12px;
+    text-align: center;
+}
+
 .project-area .project-showcase.onload .slider-wrapper {
     transform: translateX(-144px);
     opacity: 0;
@@ -386,6 +558,9 @@
     display: flex;
     flex-direction: row;
     position: relative;
+}
+.projects-section[data-mobileMode="true"] .project-showcase .hero-space {
+    flex-direction: column;
 }
 
 .project-showcase .hero-space > .title {
@@ -412,6 +587,14 @@
     font-weight: 600;
     font-size: 14px;
     margin-bottom: 4px;
+}
+.project-showcase .title-inline {
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 4px;
+    font-family: 'Share Tech';
+    text-align: center;
 }
 .project-showcase .story {
     position: relative;
@@ -445,7 +628,7 @@
     height: 200px;
     width: 100%;
     border-radius: 22px;
-    bottom: 4px;
+    top: 25px;
     right: 16px;
     box-sizing: border-box;
     transition: 0.6s;
@@ -521,6 +704,9 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.projects-section[data-mobileMode="true"] .project-showcase .story .body .text {
+    font-size: 14px;
+}
 
 .project-showcase .links {
     display: flex;
@@ -528,13 +714,26 @@
     gap: 16px;
     justify-content: flex-end;
 }
+[data-mobileMode="true"] .project-showcase .links {
+    justify-content: center;
+}
 
 .tech-names {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: 8px 24px;
+}
+.projects-section[data-mobileMode="true"] .tech-names {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
+.projects-section[data-mobileMode="true"] .tech-names .tech-name {
+    color: gray;
+    font-family: 'Share Tech';
+    font-size: 5vw;
+}
 .tech-names .tech-name {
     color: gray;
     font-family: 'Share Tech';
@@ -657,6 +856,13 @@
     padding: 72px;
     box-sizing: border-box;
 }
+.contact-me-section[data-mobileMode="true"] {
+    padding: 36px;
+    width: 100vw;
+    height: auto;
+}
+
+
 .contact-me-section .contact-me-area {
     display: flex;
     flex-direction: row;
@@ -665,6 +871,11 @@
     padding: 64px 0px;
     box-sizing: border-box;
     align-items: center;
+}
+.contact-me-section[data-mobileMode="true"] .contact-me-area {
+    flex-direction: column;
+    padding: 0px;
+    margin: 24px 0px;
 }
 
 .contact-me-area .contact-statement,
@@ -679,14 +890,41 @@
     padding-right: 48px;
     box-sizing: border-box;
 }
+.contact-me-section[data-mobileMode="true"] .contact-me-area .contact-statement {
+    padding: 0;
+    margin-bottom: 24px;
+    text-align: center;
+}
 .contact-me-area .contact-form {
     padding-left: 144px;
     box-sizing: border-box;
     gap: 36px;
 }
+.contact-me-area .contact-form .btn-holder {
+    display: flex;
+    justify-content: flex-end;
+}
+.contact-me-section[data-mobileMode="true"] .contact-me-area .contact-form .btn-holder {
+    justify-content: center;
+}
+.contact-me-section[data-mobileMode="true"] .contact-me-area .contact-form {
+    padding: 0;
+    width: 100%;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+
 .contact-statement .title {
     font-size: 64px;
     font-family: 'Share Tech';
+}
+.contact-me-section[data-mobileMode="true"] .contact-statement .title {
+    font-size: 12vw;
+    font-family: 'Share Tech';
+}
+.contact-me-section[data-mobileMode="true"] .contact-statement .text {
+    font-size: 14px;
 }
 
 .contact-form .inputBox {

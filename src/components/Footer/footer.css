@@ -9,11 +9,22 @@
     color: white;
     gap: 12px;
 }
+.footer[data-mobileMode="true"] {
+    padding: 24px 36px;
+    height: auto;
+    text-align: center;
+}
 
 .github-link {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
+}
+
+[data-mobileMode="true"] .github-link {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
 }
 
 .text-link-green {
