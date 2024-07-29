@@ -411,7 +411,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                         <p>I'm David, a </p>
                         <p style={{ color: 'rgb(87, 255, 205)' }}>{text}<span><Cursor /></span></p>
                     </div>
-                    <p className="intro-summary">Based in Houston, TX, I'm an experienced Junior React Developer passionate about creating amazing user experiences.</p>
+                    <p className="intro-summary">Based in Houston, TX, I'm an experienced React Developer passionate about creating amazing user experiences.</p>
                     <div onClick={() => scrollToSection(refs.techSectionRef)} className="big-action-btn mt-4">
                         <span className="material-symbols-outlined">arrow_downward_alt</span>
                     </div>
