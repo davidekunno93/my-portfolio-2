@@ -513,7 +513,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                                 <div className="text">Projects <br />worked on</div>
                             </div>
                         </div>
-                        <p className="body-text">I've worked on several fun and challenging projects includiing a streaming service, travel social platform, meditation website etc. Though I've worked many projects independently, I prefer to collaborate with others on a team and have more stream-lined responsibilities and more creative input.</p>
+                        <p className="body-text">I've worked on several fun and challenging projects including a streaming service, travel social platform, meditation website etc. Though I've worked many projects independently, I prefer to collaborate with others on a team and have more stream-lined responsibilities and more creative input.</p>
                     </div>
                 </div>
             </div>

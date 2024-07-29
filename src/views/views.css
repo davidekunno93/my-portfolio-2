@@ -11,6 +11,7 @@
 
 .hero-section[data-mobileMode="true"] {
     width: 100vw;
+    position: relative;
 }
 
 .hero-section[data-mobileMode="true"] .intro-area {
