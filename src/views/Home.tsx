@@ -254,7 +254,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             const observer = new ResizeObserver((entries) => {
                 setPhantomStoryDimensions({
                     fullWidth: entries[0].contentRect.width + 64,
-                    fullHeight: entries[0].contentRect.height + 96,
+                    fullHeight: entries[0].contentRect.height + 64,
                 })
             })
             observer.observe(phantomRef.current);
@@ -272,8 +272,11 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
 
             wait(600).then(() => {
                 if (storyBoxRef.current && phantomStoryDimensions.fullHeight) {
-                    // storyBoxRef.current.style.height = phantomStoryDimensions.fullHeight.toString() + "px";
-                    storyBoxRef.current.style.height = "260px";
+                    if (mobileMode) {
+                        storyBoxRef.current.style.height = "260px";
+                    } else {
+                        storyBoxRef.current.style.height = phantomStoryDimensions.fullHeight.toString() + "px";
+                    }
                     storyBoxRef.current?.classList.add("padded");
                 }
                 wait(400).then(() => {
