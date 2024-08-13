@@ -74,7 +74,7 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
               <p>Contact Me</p>
             </div>
             <div className="flx align-c mr-4">
-              <Link to='https://magenta-nissie-77.tiiny.site/' target='_blank'><button className="btn-primary">
+              <Link to='https://davidekunno.tiiny.site/' target='_blank'><button className="btn-primary">
                 <p>View Resume</p>
               </button></Link>
             </div>
@@ -105,7 +105,7 @@ const Navbar = ({ refs, scrollToSection }: navbarProps) => {
                   <p>Contact Me</p>
                 </div>
                 <div className="option">
-                  <Link to='https://magenta-nissie-77.tiiny.site/' target='_blank'>
+                  <Link to='https://davidekunno.tiiny.site/' target='_blank'>
                     <button className="btn-primary small">View Resume</button>
                   </Link>
                 </div>
