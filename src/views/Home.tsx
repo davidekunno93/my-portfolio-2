@@ -38,7 +38,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
         projectName: string
         icon: string
         title: string
-        titleSize: number
+        titleSize?: number | string
+        lineHeight?: number | string
         storyText: string
         technologies: string[]
         githubLink: string
@@ -68,7 +69,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             projectName: "RouteWise",
             icon: "https://i.imgur.com/d2FMf3s.png",
             title: "Route%Wise",
-            titleSize: 184,
+            titleSize: "12vw",
             storyText: "I was alerted to a scholarship opportunity for a program, called Co.Lab, as a developer. I took an assessment and I was accepted into the program to join forces with Product roles and a Backend developer. We were chosen as one of the few teams to present our product at the end of the 3 month program, and have continued to work on it ever since. We have integrated Google APIs for maps and place search and developed a refined algorithm that sorts user places into an organized itinerary. On this project I am the sole Frontend Developer using React JS bringing the Designer's vision onto a functional web page. I also integrated Firebase for user management and I collaborate with the Backend Developer for various backend functionalities. On the Frontend I've incorporated several APIs to create a seamless user flow allowing users to search for places within the scope of their travel destination and created data structures so they can readily move places between itinerary and saved places and even find new places to visit in a suggested places panel.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
             githubLink: "https://github.com/davidekunno93/Routewise-FrontEnd",
@@ -99,6 +100,48 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                     title: "Customize Itinerary",
                     desc: "Drag 'n' drop places, add new places and finalize your itinerary",
                     imgUrl: "https://i.imgur.com/b5lVva4.png",
+                    googleIcon: true,
+                    icon: "map"
+                },
+            }
+        },
+        "gamertheory": {
+            id: "gamertheory",
+            projectName: "Gamer Theory E-commerce",
+            icon: "https://i.imgur.com/ISdD0vL.png",
+            title: "Gamer%Theory",
+            titleSize: "10vw",
+            lineHeight: "0.9",
+            storyText: "In order to challenge my TypeScript and Web development skills I had the idea to develop an e-commerce website for video games and document my journey on LinkedIn. My goals were to create a simple, user-friendly website that has a modern, appealing design, emulates the user experience of a modern online store and to display my skills as a developer. I am currently working on the website and am excited to see what I can do with it!",
+            technologies: ["HTML", "CSS", "TypeScript", "React", "Firebase"],
+            githubLink: "https://github.com/davidekunno93/GamerTheoryWebsite.git",
+            websiteLink: "https://gamer-theory-website.vercel.app/",
+            imgs: {
+                1: {
+                    title: "Home Page",
+                    desc: "Browse games of all genres for different consoles",
+                    imgUrl: "https://i.imgur.com/HwCyCLK.png",
+                    googleIcon: true,
+                    icon: "home"
+                },
+                2: {
+                    title: "Select a platform",
+                    desc: "Choose a platform to start browsing products",
+                    imgUrl: "https://i.imgur.com/JQ7PTRB.png",
+                    googleIcon: true,
+                    icon: "power"
+                },
+                3: {
+                    title: "Browse game products",
+                    desc: "Filter and browse games by genre and platform or browse console products",
+                    imgUrl: "https://i.imgur.com/4hGF5Q8.png",
+                    googleIcon: true,
+                    icon: "sports_esports"
+                },
+                4: {
+                    title: "Product Details",
+                    desc: "Explore details about the selected product and browse similar items",
+                    imgUrl: "https://i.imgur.com/Drpjy63.png",
                     googleIcon: true,
                     icon: "map"
                 },
@@ -565,7 +608,9 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                                 :
                                 <div className="title">
                                     {selectedProject.title.split("%").map((str, index) => {
-                                        return <p key={index}>{str}</p>
+                                        return <p key={index} style={{ fontSize: selectedProject.titleSize ?? "", lineHeight: selectedProject.lineHeight ?? "" }}>
+                                            {str}
+                                        </p>
                                     })}
                                 </div>
                             }
