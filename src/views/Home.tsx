@@ -38,6 +38,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
         projectName: string
         icon: string
         title: string
+        titleStrokeWidth?: number
+        titleStrokeColor?: string
         titleSize?: number | string
         lineHeight?: number | string
         storyText: string
@@ -69,6 +71,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             projectName: "RouteWise",
             icon: "https://i.imgur.com/d2FMf3s.png",
             title: "Route%Wise",
+            titleStrokeWidth: 2,
+            titleStrokeColor: "#dcdcff",
             titleSize: "12vw",
             storyText: "I was alerted to a scholarship opportunity for a program, called Co.Lab, as a developer. I took an assessment and I was accepted into the program to join forces with Product roles and a Backend developer. We were chosen as one of the few teams to present our product at the end of the 3 month program, and have continued to work on it ever since. We have integrated Google APIs for maps and place search and developed a refined algorithm that sorts user places into an organized itinerary. On this project I am the sole Frontend Developer using React JS bringing the Designer's vision onto a functional web page. I also integrated Firebase for user management and I collaborate with the Backend Developer for various backend functionalities. On the Frontend I've incorporated several APIs to create a seamless user flow allowing users to search for places within the scope of their travel destination and created data structures so they can readily move places between itinerary and saved places and even find new places to visit in a suggested places panel.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
@@ -110,6 +114,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             projectName: "Gamer Theory E-commerce",
             icon: "https://i.imgur.com/ISdD0vL.png",
             title: "Gamer%Theory",
+            titleStrokeWidth: 2,
+            titleStrokeColor: "#ffeacb",
             titleSize: "10vw",
             lineHeight: "0.9",
             storyText: "In order to challenge my TypeScript and Web development skills I had the idea to develop an e-commerce website for video games and document my journey on LinkedIn. My goals were to create a simple, user-friendly website that has a modern, appealing design, emulates the user experience of a modern online store and to display my skills as a developer. I am currently working on the website and am excited to see what I can do with it!",
@@ -152,6 +158,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             projectName: "Things-To-Do Web App",
             icon: "https://i.imgur.com/p5VDkun.png",
             title: "Things%To-Do",
+            titleStrokeWidth: 2,
+            titleStrokeColor: "gray",
             titleSize: 164,
             storyText: "I made this to-do list (with a twist) style application to be my own personal productivity companion. I often create lists of things to do on my phone and wanted a more organized platform which would be intuitive to my needs and improve my time management skills. My first goal was to make the user experience feel really smooth, intuitive and fun, and my second goal was to have lots of customizable task details without too much clutter. I designed the web app to have smooth animations and several editable task details that are hidden away until you click to expand them. Completed tasks can also be traded in for points in order to incentivize users to complete tasks daily.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase", "Python", "Flask", "Postgresql"],
@@ -192,7 +200,9 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             id: "research-app",
             projectName: "Research Visit Tracker App",
             icon: "https://i.imgur.com/HJAapYA.png",
-            title: "Resear-%ch App",
+            title: "Research%App",
+            titleStrokeWidth: 2,
+            titleStrokeColor: "#ceecd2",
             titleSize: 164,
             storyText: "I wanted to create a web application with TypeScript and this web app presented the perfect opportunity for me to do that. Working  as a Research Coordinator at Advanced Rheumatology of Houston I had to keep track of patient visits, and coordinate future visits within specific visit windows. The work of calculating these visit windows, updating visit data, and looking up study information can be quite tedious and grueling especially when data is in different places. This is where the Research Visit Tracker App comes in. Specifically tailored to the needs of my clinic, it contains several research studies conducted by the clinic so study information is more readily accessible, visit windows are auto-calculated as you use the web app for each specific study using previous visit data, and packaged in a modern looking database platform.",
             technologies: ["HTML", "CSS", "TypeScript", "React"],
@@ -256,7 +266,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 },
             }
         },
-    }
+    };
 
     const [projectsScrollOffset, setProjectsScrollOffset] = useState<number>(0);
     const scrollProjects = (direction: string) => {
@@ -463,7 +473,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                     <div className="links-area">
                         <div className="about-me-link">
                             <p className="title">ABOUT ME</p>
-                            <p className="body-text">Born and raised in London, now living in the US. I found Python in 2022 and the rest is history. I'm a Junior Developer but thanks to consistent habits and enjoyment for this work I've exceled very quickly in this field...</p>
+                            <p className="body-text">Born and raised in London, now living in the US. I found Python during COVID and the rest is history. I'm a Web Developer but thanks to consistent habits and enjoyment for this work I've exceled very quickly in this field...</p>
                             <div className="flx">
                                 <div onClick={() => scrollToSection(refs.aboutMeSectionRef)} className="text-link">
                                     <p>LEARN MORE</p>
@@ -510,23 +520,23 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                     <div className="skills-list">
                         <div className="skill">
                             <p className="name">HTML</p>
-                            <p className="description">2 years experience</p>
+                            <p className="description">2+ years experience</p>
                         </div>
                         <div className="skill">
                             <p className="name">CSS</p>
-                            <p className="description">2 years experience</p>
+                            <p className="description">2+ years experience</p>
                         </div>
                         <div className="skill">
                             <p className="name">React</p>
-                            <p className="description">2 years experience</p>
+                            <p className="description">2+ years experience</p>
                         </div>
                         <div className="skill">
                             <p className="name">JavaScript</p>
-                            <p className="description">2 years experience</p>
+                            <p className="description">2+ years experience</p>
                         </div>
                         <div className="skill">
                             <p className="name">TypeScript</p>
-                            <p className="description">2 years experience</p>
+                            <p className="description">2+ years experience</p>
                         </div>
 
                         <div className="skill-others">
@@ -542,8 +552,8 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                 <div ref={refs.aboutMeSectionRef} className="about-me-area">
 
                     <div className="personal-info-part">
-                        <p className="title">I've been developing websites since 2022</p>
-                        <p className="body-text">I found Python in 2022 and the rest is history. I'm a Junior Developer but thanks to consistent habits and real enjoyment for this work I've exceled very quickly in this field. I have a passion for creating logical solutions and software development gives me the opportunity to do just that.</p>
+                        <p className="title">I've been developing websites since the early 2020s</p>
+                        <p className="body-text">I found Python during COVID and the rest is history. I'm a Web Developer but thanks to consistent habits and real enjoyment for this work I've exceled very quickly in this field. I have a passion for creating logical solutions and software development gives me the opportunity to do just that.</p>
                     </div>
                     <div className="experience-part">
                         <div className="xp-details">
@@ -599,7 +609,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                             </div>
                         </div>
                     </div>
-                    <div ref={projectShowcaseRef} className="project-showcase onloa hidde">
+                    <div ref={projectShowcaseRef} className="project-showcase">
                         <div className="hero-space">
                             {mobileMode ?
                                 <p className="title-inline">
@@ -608,7 +618,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                                 :
                                 <div className="title">
                                     {selectedProject.title.split("%").map((str, index) => {
-                                        return <p key={index} style={{ fontSize: selectedProject.titleSize ?? "", lineHeight: selectedProject.lineHeight ?? "" }}>
+                                        return <p key={index} style={{ fontSize: selectedProject.titleSize ?? "", lineHeight: selectedProject.lineHeight ?? "", WebkitTextStrokeColor: selectedProject.titleStrokeColor ?? "", WebkitTextStrokeWidth: selectedProject.titleStrokeWidth ?? "" }}>
                                             {str}
                                         </p>
                                     })}
