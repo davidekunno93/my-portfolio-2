@@ -573,12 +573,34 @@
     height: 32px;
     border-radius: 50%;
     display: flex;
+    cursor: pointer;
+    z-index: 1;
 }
 
 .image-shuffler .imgDiv .img-select .option span {
     margin: auto;
     color: white;
     font-size: 22px;
+}
+
+.image-shuffler .imgDiv .mobile-play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gainsboro;
+    height: 84px;
+    width: 84px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+}
+.image-shuffler .imgDiv .mobile-play-icon span {
+    color: black;
+    font-size: 48px;
+    cursor: pointer;
 }
 
 .image-shuffler .caption {
@@ -850,6 +872,7 @@
     transition: 0.6s cubic-bezier(0.28, -0.03, 0, 0.99);
     box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.8);
     padding: 0px;
+    position: relative;
 }
 
 .card>.row {
@@ -860,9 +883,13 @@
 
     width: 480px;
     padding-top: 12px;
-    background-color: rgba(0, 0, 0, 0.65);
-}
+    background-color: rgba(0, 0, 0, 0.5);
 
+    transition-duration: 0.4s;
+    position: absolute;
+    z-index: 1;
+}
+ 
 .card>.row.light {
     background-color: rgba(255, 255, 255, 0.5);
 }
@@ -924,12 +951,58 @@
     width: 480px;
 }
 
+.slider-container input:checked+label:hover .row {
+    transition-delay: 0s;
+    transform: translateY(0px);
+}
+.slider-container input:checked+label .row {
+    transition-delay: 0.5s; 
+    transform: translateY(64px);
+}
+
 .slider-container input:checked+label .description {
     opacity: 1 !important;
     transform: translateY(-20px) !important;
 }
 
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.play-icon {
+    width: 84px;
+    height: 84px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: gainsboro;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    z-index: 1;
+    cursor: pointer;
+    transition-duration: 0.2s;
 
+    transition-delay: 0.5s; 
+    visibility: hidden;
+    opacity: 0;
+}
+.slider-container input:checked+label:hover .play-icon,
+.slider-container input:checked+label .play-icon.paused {
+    transition-delay: 0s;
+    visibility: visible;
+    opacity: 1;
+}
+.play-icon:hover {
+    background-color: rgb(184, 184, 184);
+}
+.play-icon span {
+    font-size: 48px;
+    color: black;
+}
 
 /* ------------------------------END OF PROJECT----------------------------------- */
 

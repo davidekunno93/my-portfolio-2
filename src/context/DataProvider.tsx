@@ -13,7 +13,8 @@ const DataProvider = (props: any) => {
             }
             return words.join(" ");
         }
-    }
+    };
+    const gIcon = "material-symbols-outlined";
 
     // [mobile mode]
     const [mobileMode, setMobileMode] = useState<boolean>(false);
@@ -27,7 +28,7 @@ const DataProvider = (props: any) => {
         } else {
             setMobileMode(false);
         }
-    }
+    };
     useEffect(() => {
         handleResize()
         window.addEventListener("resize", handleResize, true);
@@ -35,7 +36,7 @@ const DataProvider = (props: any) => {
     }, [])
 
     return (
-        <DataContext.Provider value={{ textFunctions, mobileMode }}>
+        <DataContext.Provider value={{ textFunctions, mobileMode, gIcon }}>
             {props.children}
         </DataContext.Provider>
     )
