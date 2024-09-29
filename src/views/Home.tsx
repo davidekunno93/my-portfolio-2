@@ -396,6 +396,9 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
                     // set mobileMode img shuffler index to 0
                     setImgShuffleIndex(0)
 
+                    // set video index playing to null
+                    setVideoIndexPlaying(null);
+
                     // update projectState
                     setSelectedProject(projects[projectId]);
                     // add onload to showcase
