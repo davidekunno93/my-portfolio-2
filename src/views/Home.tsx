@@ -79,7 +79,7 @@ const Home = ({ refs, scrollToSection }: homeProps) => {
             storyText: "I was alerted to a scholarship opportunity for a program, called Co.Lab, as a developer. I took an assessment and I was accepted into the program to join forces with Product roles and a Backend developer. We were chosen as one of the few teams to present our product at the end of the 3 month program, and have continued to work on it ever since. We have integrated Google APIs for maps and place search and developed a refined algorithm that sorts user places into an organized itinerary. On this project I am the sole Frontend Developer using React JS bringing the Designer's vision onto a functional web page. I also integrated Firebase for user management and I collaborate with the Backend Developer for various backend functionalities. On the Frontend I've incorporated several APIs to create a seamless user flow allowing users to search for places within the scope of their travel destination and created data structures so they can readily move places between itinerary and saved places and even find new places to visit in a suggested places panel.",
             technologies: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
             githubLink: "https://github.com/davidekunno93/Routewise-FrontEnd",
-            websiteLink: "https://routewise-front-end.vercel.app/",
+            websiteLink: "https://www.routewise-travel.com/",
             media: {
                 1: {
                     title: "Create Trip Demo",
